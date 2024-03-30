@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour
     public GameObject[] StartCards;
     public Transform deckTransform,playerHandTransform,bearHandTransform,cameraTransform;
 
-    public Transform boardPlacementTransforms;
+    public Transform[] boardPlacementTransforms;
 
     static Vector3 deckPosition,playerHandPos,bearHandPos,cameraPos;
 
