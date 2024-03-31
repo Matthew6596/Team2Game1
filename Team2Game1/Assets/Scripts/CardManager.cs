@@ -62,6 +62,15 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    static public void Discard(GameObject card)
+    {
+        if (PlayerHand.Contains(card)) PlayerHand.Remove(card);
+        else if(BearHand.Contains(card)) BearHand.Remove(card);
+        else if(BoardCards.Contains(card)) BoardCards.Remove(card);
+
+        DiscardPile.Add(card);
+    }
+
     void createCards()
     {
         for(int i=0; i<NumCards; i++)
@@ -77,6 +86,11 @@ public class CardManager : MonoBehaviour
     static int shuffleCount = 40; //Number of times that 2 random cards are swapped
     static public void ShuffleCards()
     {
+        //Reshuffle discard pile into the deck
+        DeckCards.AddRange(DiscardPile);
+        DiscardPile.Clear();
+
+        //shuffle
         for (int i = 0; i < shuffleCount; i++)
         {
             //Get 2 random index
