@@ -74,9 +74,20 @@ public class CardManager : MonoBehaviour
         DeckCards.Add(Instantiate(cardPrefab));
     }
 
+    static int shuffleCount = 40; //Number of times that 2 random cards are swapped
     static public void ShuffleCards()
     {
-        DeckCards.OrderBy(_ => UnityEngine.Random.Range(0, 1000));
+        for (int i = 0; i < shuffleCount; i++)
+        {
+            //Get 2 random index
+            int rand1 = UnityEngine.Random.Range(0, DeckCards.Count - 1);
+            int rand2 = UnityEngine.Random.Range(0, DeckCards.Count - 1);
+
+            //Swap the randomly selected cards
+            GameObject tmp = DeckCards[rand1];
+            DeckCards[rand1] = DeckCards[rand2];
+            DeckCards[rand2] = tmp;
+        }
     }
 
     void setHandPositions()
