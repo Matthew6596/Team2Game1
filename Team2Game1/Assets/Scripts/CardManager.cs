@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class CardManager : MonoBehaviour
 {
@@ -23,9 +24,13 @@ public class CardManager : MonoBehaviour
     static List<GameObject> BoardCards = new();
     static List<GameObject> DiscardPile = new();
 
+
+    static MonoBehaviour m = new();
     // Start is called before the first frame update
     void Start()
     {
+        m = GameObject.Find("CardManager").GetComponent<MonoBehaviour>();
+
         deckPosition = deckTransform.position;
         playerHandPos = playerHandTransform.position;
         //bearHandPos = bearHandTransform.position;
@@ -52,8 +57,7 @@ public class CardManager : MonoBehaviour
             int nc = PlayerHand.Count - 1;
             for (int i = 0; i < PlayerHand.Count; i++)
             {
-                PlayerHand[i].transform.position = handPositions[nc, i] + playerHandPos;
-                PlayerHand[i].transform.LookAt(cameraPos);
+                m.StartCoroutine(MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos,cameraPos));
             }
         }
     }
@@ -72,7 +76,7 @@ public class CardManager : MonoBehaviour
 
     static public void ShuffleCards()
     {
-        DeckCards.OrderBy(_ => Random.Range(0, 1000));
+        DeckCards.OrderBy(_ => UnityEngine.Random.Range(0, 1000));
     }
 
     void setHandPositions()
@@ -83,7 +87,7 @@ public class CardManager : MonoBehaviour
         {
             for(int j=0; j < MaxHandCards; j++)
             {
-                handPositions[i, j] = new Vector3(j * cardDistX, Random.Range(-randY, randY), 0);
+                handPositions[i, j] = new Vector3(j * cardDistX, UnityEngine.Random.Range(-randY, randY), 0);
             }
         }
     }
@@ -95,6 +99,22 @@ public class CardManager : MonoBehaviour
             DeckCards[cardNum].transform.position = Vector3.up*0.02f*i + deckPosition;
             DeckCards[cardNum].transform.rotation = Quaternion.Euler(90, 0, 0);
             cardNum--;
+        }
+    }
+
+    static float cardMoveSpd=10f;
+    static float distError=0.001f;
+    static IEnumerator MoveCard(GameObject _card, Vector3 _location,Vector3 lookAt)
+    {
+        Transform cardT = _card.transform;
+        float dist = Vector3.Distance(cardT.position, _location);
+        while (dist > distError) //While card not at desired location
+        {
+            //Move card towards location
+            cardT.position = Vector3.MoveTowards(cardT.position, _location, cardMoveSpd * Time.deltaTime);
+            cardT.LookAt(lookAt);
+            //Skip to next frame then continue loop
+            yield return null; 
         }
     }
 }
