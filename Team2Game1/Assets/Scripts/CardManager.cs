@@ -25,7 +25,7 @@ public class CardManager : MonoBehaviour
     public static List<GameObject> DiscardPile = new();
 
 
-    static MonoBehaviour m = new();
+    static MonoBehaviour m;
     // Start is called before the first frame update
     void Start()
     {
