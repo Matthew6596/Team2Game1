@@ -18,11 +18,11 @@ public class CardManager : MonoBehaviour
     static Vector3[,] handPositions = new Vector3[MaxHandCards, MaxHandCards]; //16=max number of cards in hand
 
     static int NumCards=0;
-    static List<GameObject> DeckCards = new();
-    static List<GameObject> PlayerHand = new();
-    static List<GameObject> BearHand = new();
-    static List<GameObject> BoardCards = new();
-    static List<GameObject> DiscardPile = new();
+    public static List<GameObject> DeckCards = new();
+    public static List<GameObject> PlayerHand = new();
+    public static List<GameObject> BearHand = new();
+    public static List<GameObject> BoardCards = new();
+    public static List<GameObject> DiscardPile = new();
 
 
     static MonoBehaviour m = new();
