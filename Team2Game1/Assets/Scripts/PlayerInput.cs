@@ -94,7 +94,6 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        Debug.Log("YOOO1: " + hitObj.name);
         if (hitObj.CompareTag("Deck"))
         {
             CardManager.DrawFromDeck();

@@ -53,7 +53,6 @@ public class CardManager : MonoBehaviour
             GameObject c = DeckCards[0];
             DeckCards.Remove(c);
             PlayerHand.Add(c);
-            Debug.Log("Player got card: " + c.name);
 
             SetHandPositions();
 
@@ -157,10 +156,8 @@ public class CardManager : MonoBehaviour
     {
         Transform cardT = _card.transform;
         float dist = Vector3.Distance(cardT.position, _location);
-        Debug.Log("ayo: "+dist);
         while (dist > distError) //While card not at desired location
         {
-            Debug.Log("huh?: "+dist+" > "+distError);
             //Move card towards location
             cardT.position = Vector3.MoveTowards(cardT.position, _location, cardMoveSpd * Time.deltaTime* Vector3.Distance(cardT.position, _location));
             cardT.LookAt(lookAt);
