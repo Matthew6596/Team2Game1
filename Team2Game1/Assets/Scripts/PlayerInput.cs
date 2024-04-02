@@ -118,8 +118,12 @@ public class PlayerInput : MonoBehaviour
                 CardManager.DrawFromDeck();
 
         }
-        else if (hitObj.CompareTag("")) {
-
+        else if (hitObj.CompareTag("PlayerTile")) {
+            if (CardManager.SelectedCard!=null)
+            {
+                CardManager.SelectedCard = null;
+                Debug.Log("Card placed");
+            }
         }
         else
         {
