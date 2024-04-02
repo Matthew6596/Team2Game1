@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127081482543410528}
-  - {fileID: 2890986661515470412}
+  - {fileID: 177676690685289001}
   m_Father: {fileID: 5765829377908141367}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1389,9 +1389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95ed8a9453590446923ce0c414b5af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 0
-  HugPower: 0
-  Range: 0
+  Energy: 5
+  HugPower: 1
+  Range: 1
   Special: 0
   IsPlayerControlled: 0
 --- !u!1 &3225785663688975976
@@ -1976,7 +1976,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
---- !u!4 &2890986661515470412 stripped
+--- !u!4 &177676690685289001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 157950789030015128, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
   m_PrefabInstance: {fileID: 19733371677151921}
