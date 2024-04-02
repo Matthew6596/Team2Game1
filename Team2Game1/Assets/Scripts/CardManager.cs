@@ -59,7 +59,7 @@ public class CardManager : MonoBehaviour
             int nc = PlayerHand.Count - 1;
             for (int i = 0; i < PlayerHand.Count; i++)
             {
-                m.StartCoroutine(MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos,cameraPos));
+                MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos,cameraPos);
             }
         }
     }
@@ -131,7 +131,7 @@ public class CardManager : MonoBehaviour
 
     static float cardMoveSpd=10f;
     static float distError=0.001f;
-    static IEnumerator MoveCard(GameObject _card, Vector3 _location,Vector3 lookAt)
+    static IEnumerator moveCard(GameObject _card, Vector3 _location,Vector3 lookAt)
     {
         Transform cardT = _card.transform;
         float dist = Vector3.Distance(cardT.position, _location);
@@ -143,5 +143,10 @@ public class CardManager : MonoBehaviour
             //Skip to next frame then continue loop
             yield return null; 
         }
+    }
+
+    static public void MoveCard(GameObject _card, Vector3 _location, Vector3 lookAt)
+    {
+        m.StartCoroutine(moveCard(_card, _location, lookAt));
     }
 }
