@@ -56,7 +56,7 @@ public class PlayerInput : MonoBehaviour
 
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.materials[1].SetFloat("_Scale", 0.01f); //reset
-        DoOutlineGlow();
+        //DoOutlineGlow();
         
     }
 
@@ -87,6 +87,14 @@ public class PlayerInput : MonoBehaviour
     //Important: interactable object must be on Interactable layer, and also have a tag
     void InteractWithItem(GameObject hitObj)
     {
+        //If a card is being examined, clicking something will unexamine the card
+        if (CardManager.cardBeingExamined)
+        {
+            CardManager.ExamineCard();
+            return;
+        }
+
+        Debug.Log("YOOO1: " + hitObj.name);
         if (hitObj.CompareTag("Deck"))
         {
             CardManager.DrawFromDeck();
@@ -100,12 +108,14 @@ public class PlayerInput : MonoBehaviour
             if (CardManager.SelectedCard == null)
             {
                 //Select the clicked card if valid
-                if(CardManager.PlayerHand.Contains(hitObj)||CardManager.BoardCards.Contains(hitObj))
+                if (CardManager.PlayerHand.Contains(hitObj) || CardManager.BoardCards.Contains(hitObj))
                     CardManager.SelectedCard = hitObj;
             }
             //Player has either board/hand card selected
-            else if(CardManager.BoardCards.Contains(CardManager.SelectedCard)|| CardManager.PlayerHand.Contains(CardManager.SelectedCard))
+            else if (CardManager.BoardCards.Contains(CardManager.SelectedCard) || CardManager.PlayerHand.Contains(CardManager.SelectedCard))
                 CardClicked(hitObj);
+            else if (CardManager.DeckCards.Contains(hitObj))
+                CardManager.DrawFromDeck();
 
         }
         else if (hitObj.CompareTag("")) {
@@ -120,16 +130,25 @@ public class PlayerInput : MonoBehaviour
     void CardClicked(GameObject hitObj)
     {
         //If selected card and clicked card are on the board, hug
-        if (CardManager.BoardCards.Contains(CardManager.SelectedCard)&& CardManager.BoardCards.Contains(hitObj))
+        if (CardManager.BoardCards.Contains(CardManager.SelectedCard) && CardManager.BoardCards.Contains(hitObj))
         {
             CardManager.SelectedCard.GetComponent<CardScript>().Hug(hitObj.GetComponent<CardScript>());
         }
-        //If player clicked the same card, deselct it
-        else if (CardManager.SelectedCard == hitObj)
-            CardManager.SelectedCard = null;
-        //If clicked card is in player hand, select it
+        //If clicked card is in player hand...
         else if (CardManager.PlayerHand.Contains(hitObj))
-            CardManager.SelectedCard = hitObj;
+        {
+            //...and is the same as selected card, examine
+            if (CardManager.SelectedCard == hitObj)
+                CardManager.ExamineCard();
+
+            //if card is not the same as selected card, select it
+            else
+                CardManager.SelectedCard = hitObj;
+        }
+        //If clicked card is on the board, and is the same as selected card, deselect
+        else if(CardManager.SelectedCard==hitObj)
+            CardManager.SelectedCard = null;
+
     }
 
     void DoOutlineGlow()

@@ -12,6 +12,7 @@ public class CardScript : MonoBehaviour
     //Card stats
     public int Energy;
     public int HugPower;
+    public float Range;
     public CardAbility Special;
     public bool IsPlayerControlled;
 
@@ -33,6 +34,8 @@ public class CardScript : MonoBehaviour
 
     public void Hug(CardScript opponent)
     {
+        //Cant hug if too far away
+        if (Vector3.Distance(gameObject.transform.position, opponent.transform.position) > Range) return;
         //Cant hug when opossum ability is active
         if (opponent.Special == CardAbility.opossumPlayDead) return;
 

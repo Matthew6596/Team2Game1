@@ -55,12 +55,10 @@ public class CardManager : MonoBehaviour
             PlayerHand.Add(c);
             Debug.Log("Player got card: " + c.name);
 
-            //Change card positions
-            int nc = PlayerHand.Count - 1;
-            for (int i = 0; i < PlayerHand.Count; i++)
-            {
-                MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos,cameraPos);
-            }
+            SetHandPositions();
+
+            //Decrement player turn
+
         }
     }
 
@@ -118,6 +116,15 @@ public class CardManager : MonoBehaviour
             }
         }
     }
+    static public void SetHandPositions()
+    {
+        //Change card positions
+        int nc = PlayerHand.Count - 1;
+        for (int i = 0; i < PlayerHand.Count; i++)
+        {
+            MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos, cameraPos);
+        }
+    }
     static public void SetDeckPositions()
     {
         int cardNum = DeckCards.Count - 1;
@@ -128,20 +135,39 @@ public class CardManager : MonoBehaviour
             cardNum--;
         }
     }
+    static public bool cardBeingExamined = false;
+    static public void ExamineCard()
+    {
+        if (!cardBeingExamined)
+        {
+            cardBeingExamined = true;
+            MoveCard(SelectedCard, cameraPos+Vector3.forward, cameraPos);
+        }
+        else
+        {
+            cardBeingExamined = false;
+            SetHandPositions();
+        }
+    }
 
-    static float cardMoveSpd=10f;
-    static float distError=0.001f;
+
+    static float cardMoveSpd=5f;
+    static float distError=0.1f;
     static IEnumerator moveCard(GameObject _card, Vector3 _location,Vector3 lookAt)
     {
         Transform cardT = _card.transform;
         float dist = Vector3.Distance(cardT.position, _location);
+        Debug.Log("ayo: "+dist);
         while (dist > distError) //While card not at desired location
         {
+            Debug.Log("huh?: "+dist+" > "+distError);
             //Move card towards location
-            cardT.position = Vector3.MoveTowards(cardT.position, _location, cardMoveSpd * Time.deltaTime);
+            cardT.position = Vector3.MoveTowards(cardT.position, _location, cardMoveSpd * Time.deltaTime* Vector3.Distance(cardT.position, _location));
             cardT.LookAt(lookAt);
             //Skip to next frame then continue loop
-            yield return null; 
+            yield return null;
+
+            dist = Vector3.Distance(cardT.position, _location);
         }
     }
 
