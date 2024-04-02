@@ -55,8 +55,8 @@ public class PlayerInput : MonoBehaviour
         }
 
         //Glow outline / look feedback
-        if(prevHit!=null) prevHit.materials[1].SetFloat("_Scale", 0.01f); //reset
-        //DoOutlineGlow();
+        if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
+        DoOutlineGlow();
         
     }
 
@@ -161,8 +161,8 @@ public class PlayerInput : MonoBehaviour
             GameObject hitObj = hit.collider.gameObject;
             if (IsInteractable(hitObj)) //If hit obj is interactable
             {
-                prevHit = hitObj.GetComponent<Renderer>();
-                prevHit.materials[1].SetFloat("_Scale", 1.05f); //Show glow
+                prevHit = hitObj.transform.GetChild(0).GetComponent<Renderer>();
+                prevHit.material.SetFloat("_Scale", 1.05f); //Show glow
             }
         }
     }

@@ -38,8 +38,9 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _BUILTIN_QueueControl: 0
     - _QueueControl: 0
-    - _Scale: 1
+    - _Scale: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &1771475596239856070
