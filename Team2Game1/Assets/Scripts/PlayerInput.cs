@@ -84,11 +84,29 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    //Important: interactable object must be on Interactable layer, and also have a tag
     void InteractWithItem(GameObject hitObj)
     {
         if (hitObj.CompareTag("Deck"))
         {
-            CardManager.DrawFromDeck(); //using static functions because I have a deep hatred for references
+            CardManager.DrawFromDeck();
+        }
+        else if (hitObj.CompareTag("Card"))
+        {
+            if(hitObj.GetComponent<CardScript>()==null)
+                Debug.LogWarning("Object has Card tag, but no CardScript!: " + hitObj.name);
+
+            //Player has no card currently selected
+            if (CardManager.SelectedCard == null)
+            {
+                //Select the clicked card if valid
+                if(CardManager.PlayerHand.Contains(hitObj)||CardManager.BoardCards.Contains(hitObj))
+                    CardManager.SelectedCard = hitObj;
+            }
+            //Player has either board/hand card selected
+            else if(CardManager.BoardCards.Contains(CardManager.SelectedCard)|| CardManager.PlayerHand.Contains(CardManager.SelectedCard))
+                CardClicked(hitObj);
+
         }
         else if (hitObj.CompareTag("")) {
 
@@ -97,6 +115,21 @@ public class PlayerInput : MonoBehaviour
         {
             Debug.LogWarning("Object on interactable layer, but has no special tag!: " + hitObj.name);
         }
+    }
+
+    void CardClicked(GameObject hitObj)
+    {
+        //If selected card and clicked card are on the board, hug
+        if (CardManager.BoardCards.Contains(CardManager.SelectedCard)&& CardManager.BoardCards.Contains(hitObj))
+        {
+            CardManager.SelectedCard.GetComponent<CardScript>().Hug(hitObj.GetComponent<CardScript>());
+        }
+        //If player clicked the same card, deselct it
+        else if (CardManager.SelectedCard == hitObj)
+            CardManager.SelectedCard = null;
+        //If clicked card is in player hand, select it
+        else if (CardManager.PlayerHand.Contains(hitObj))
+            CardManager.SelectedCard = hitObj;
     }
 
     void DoOutlineGlow()
