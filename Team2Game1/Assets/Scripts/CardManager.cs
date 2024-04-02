@@ -106,7 +106,7 @@ public class CardManager : MonoBehaviour
 
     void setHandPositions()
     {
-        float cardDistX = 0.4f;
+        float cardDistX = 0.8f;
         float randY = 0.05f;
         for(int i=0; i<MaxHandCards; i++)
         {
