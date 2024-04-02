@@ -25,6 +25,7 @@ public class CardManager : MonoBehaviour
     public static List<GameObject> DiscardPile = new();
 
     public static GameObject SelectedCard=null;
+    public static bool CardMoving = false;
 
 
     static MonoBehaviour m;
@@ -154,6 +155,7 @@ public class CardManager : MonoBehaviour
     static float distError=0.1f;
     static IEnumerator moveCard(GameObject _card, Vector3 _location,Vector3 lookAt)
     {
+        CardMoving = true;
         Transform cardT = _card.transform;
         float dist = Vector3.Distance(cardT.position, _location);
         while (dist > distError) //While card not at desired location
@@ -166,6 +168,7 @@ public class CardManager : MonoBehaviour
 
             dist = Vector3.Distance(cardT.position, _location);
         }
+        CardMoving = false;
     }
 
     static public void MoveCard(GameObject _card, Vector3 _location, Vector3 lookAt)

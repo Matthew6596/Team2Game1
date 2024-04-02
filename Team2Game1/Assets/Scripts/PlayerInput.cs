@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour
     float mouseX, mouseY, verticalRotation = 0;
 
     Renderer prevHit;
+    Renderer prevHit2;
 
     static bool IsInteractable(GameObject hitObj) {
         return hitObj.layer == LayerMask.NameToLayer("Interactable");
@@ -76,7 +77,7 @@ public class PlayerInput : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 GameObject hitObj = hit.collider.gameObject;
-                if (IsInteractable(hitObj)) //If hit obj is interactable
+                if (IsInteractable(hitObj) && !CardManager.CardMoving) //If hit obj is interactable
                 {
                     InteractWithItem(hitObj);
                 }
@@ -164,6 +165,19 @@ public class PlayerInput : MonoBehaviour
                 prevHit = hitObj.transform.GetChild(0).GetComponent<Renderer>();
                 prevHit.material.SetFloat("_Scale", 1.05f); //Show glow
             }
+        }
+
+        if (CardManager.SelectedCard != null)
+        {
+            //Prev selected object, remove glow
+            if(prevHit2!=null&&prevHit2!= CardManager.SelectedCard.transform.GetChild(0).GetComponent<Renderer>())
+            {
+                prevHit2.material.SetFloat("_Scale", 0f);
+            }
+
+            //Selected object glow
+            prevHit2 = CardManager.SelectedCard.transform.GetChild(0).GetComponent<Renderer>();
+            prevHit2.material.SetFloat("_Scale", 1.05f); //Show glow
         }
     }
 }
