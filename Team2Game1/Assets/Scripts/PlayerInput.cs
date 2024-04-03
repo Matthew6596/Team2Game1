@@ -173,9 +173,12 @@ public class PlayerInput : MonoBehaviour
 
                 if(CardManager.SelectedCard != null)
                 {
+                    /*
                     CardManager.BoardCards[tileNum] = CardManager.SelectedCard; //this is VERY not correct and is causing errors
                     CardManager.SelectedCard = null;
                     CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
+
+                    */
                 }
             }
         }
