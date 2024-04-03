@@ -72,6 +72,8 @@ public class CardManager : MonoBehaviour
         else if(BearHand.Contains(card)) BearHand.Remove(card);
         else if(BoardCards.Contains(card)) BoardCards.Remove(card);
 
+        UnoccupyTile(card);
+
         DiscardPile.Add(card);
     }
 
@@ -223,5 +225,18 @@ public class CardManager : MonoBehaviour
             }
         }
         return ret;
+    }
+    static public void UnoccupyTile(GameObject _card)
+    {
+        List<GameObject> tiles = TurnSystem.allTiles;
+        for(int i=0; i<tiles.Count; i++)
+        {
+            TileScript ts = tiles[i].GetComponent<TileScript>();
+            if (ts.card == _card)
+            {
+                ts.card = null;
+                ts.occupied = false;
+            }
+        }
     }
 }

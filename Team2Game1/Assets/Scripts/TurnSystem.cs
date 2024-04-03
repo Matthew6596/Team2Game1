@@ -10,7 +10,9 @@ public class TurnSystem : MonoBehaviour
     static public int PlayerTurnsLeft=3;
 
     public GameObject[] EnemyTiles;
+    public GameObject[] PlayerTiles;
     static List<GameObject> enemyTiles=new();
+    public static List<GameObject> allTiles=new();
 
     public TMP_Text RoundText;
     public TMP_Text PlayerHpText;
@@ -26,8 +28,13 @@ public class TurnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0; i<EnemyTiles.Length; i++)
+        for (int i = 0; i < EnemyTiles.Length; i++)
+        {
             enemyTiles.Add(EnemyTiles[i]);
+            allTiles.Add(EnemyTiles[i]);
+        }
+        for (int i = 0; i < PlayerTiles.Length; i++)
+            allTiles.Add(PlayerTiles[i]);
         roundText = RoundText;
         playerText = PlayerHpText;
         bearText = BearHpText;
@@ -120,6 +127,7 @@ public class TurnSystem : MonoBehaviour
                     CardManager.BoardCards.Add(_card);
                     CardManager.MoveCard(_card, enemyTiles[ind].transform.position + Vector3.up * 0.3f + Vector3.back * 0.8f, CardManager.cameraPos);
                     enemyTiles[ind].GetComponent<TileScript>().occupied = true;
+                    enemyTiles[ind].GetComponent<TileScript>().card = _card;
                     spaceFound = true;
                 }
             }

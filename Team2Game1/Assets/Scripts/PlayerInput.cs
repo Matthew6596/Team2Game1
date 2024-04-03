@@ -134,12 +134,14 @@ public class PlayerInput : MonoBehaviour
                     CardManager.PlayerHand.Remove(CardManager.SelectedCard);
                     CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
                     TurnSystem.PlayerTurnsLeft--;
+                    hitObj.GetComponent<TileScript>().card = CardManager.SelectedCard;
                     CardManager.MoveCard(CardManager.SelectedCard, hitObj.transform.position + Vector3.up * 0.3f+Vector3.back*0.8f, CardManager.cameraPos);
                     CardManager.SelectedCard = null;
                     //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
                     hitObj.GetComponent<TileScript>().occupied = true;
                 }
 
+                //- I don't think you need this part
                 //- I don't think you need this part
                 //find which tile it is
                 string tileName = hitObj.name;
