@@ -58,7 +58,7 @@ public class PlayerInput : MonoBehaviour
 
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
-        DoOutlineGlow();
+        //DoOutlineGlow();
 
         if(CardManager.SelectedCard != null)
         {
@@ -133,6 +133,17 @@ public class PlayerInput : MonoBehaviour
             }
             else
             {
+                if (CardManager.SelectedCard != null && CardManager.PlayerHand.Contains(CardManager.SelectedCard))
+                {
+                    CardManager.PlayerHand.Remove(CardManager.SelectedCard);
+                    CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
+                    CardManager.SelectedCard.transform.position = hitObj.transform.position;
+                    CardManager.SelectedCard = null;
+                    //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
+                    hitObj.GetComponent<TileScript>().occupied = true;
+                }
+
+                //- I don't think you need this part
                 //find which tile it is
                 string tileName = hitObj.name;
                 Debug.Log(tileName);
@@ -169,13 +180,6 @@ public class PlayerInput : MonoBehaviour
                     case "9":
                         tileNum = 9;
                         break;
-                }
-
-                if(CardManager.SelectedCard != null)
-                {
-                    CardManager.BoardCards[tileNum] = CardManager.SelectedCard; //this is VERY not correct and is causing errors
-                    CardManager.SelectedCard = null;
-                    CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
                 }
             }
         }
