@@ -101,7 +101,9 @@ public class TurnSystem : MonoBehaviour
         }
         else
         {
-            CardManager.DrawFromDeck(true);
+            List<GameObject> bearCards = CardManager.GetPlayerBoardCards(true);
+            PlayerEnergy -= bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
+                .HugPower;
         }
     }
     static void bearPlaceCard()
