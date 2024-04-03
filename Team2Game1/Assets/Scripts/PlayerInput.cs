@@ -17,6 +17,8 @@ public class PlayerInput : MonoBehaviour
 
     Renderer prevHit;
 
+    TileScript tileScript;
+
     static bool IsInteractable(GameObject hitObj) {
         return hitObj.layer == LayerMask.NameToLayer("Interactable");
     }
@@ -57,7 +59,11 @@ public class PlayerInput : MonoBehaviour
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
         DoOutlineGlow();
-        
+
+        if(CardManager.SelectedCard != null)
+        {
+            Debug.Log(CardManager.SelectedCard.name);
+        }
     }
 
     public void PlayerLook(InputAction.CallbackContext ctx)
@@ -117,8 +123,61 @@ public class PlayerInput : MonoBehaviour
                 CardManager.DrawFromDeck();
 
         }
-        else if (hitObj.CompareTag("")) {
+        else if (hitObj.CompareTag("PlayerTile") || hitObj.CompareTag("EnemyTile")) 
+        {
+            tileScript = hitObj.GetComponent<TileScript>();
+            if(tileScript.occupied == true)
+            {
+                string tileName = hitObj.name;
+                Debug.Log(tileName);
+            }
+            else
+            {
+                //find which tile it is
+                string tileName = hitObj.name;
+                Debug.Log(tileName);
+                int tileNum = 0;
+                switch (tileName)
+                {
+                    case "0":
+                        tileNum = 0;
+                        break;
+                    case "1":
+                        tileNum = 1;
+                        break;
+                    case "2":
+                        tileNum = 2;
+                        break;
+                    case "3":
+                        tileNum = 3;
+                        break;
+                    case "4":
+                        tileNum = 4;
+                        break;
+                    case "5":
+                        tileNum = 5;
+                        break;
+                    case "6":
+                        tileNum = 6;
+                        break;
+                    case "7":
+                        tileNum = 7;
+                        break;
+                    case "8":
+                        tileNum = 8;
+                        break;
+                    case "9":
+                        tileNum = 9;
+                        break;
+                }
 
+                if(CardManager.SelectedCard != null)
+                {
+                    CardManager.BoardCards[tileNum] = CardManager.SelectedCard; //this is VERY not correct and is causing errors
+                    CardManager.SelectedCard = null;
+                    CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
+                }
+            }
         }
         else
         {

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2497428458606619408}
   - component: {fileID: 7280340308910258}
   - component: {fileID: 2089580679798580192}
-  m_Layer: 0
+  - component: {fileID: 3231770683044462304}
+  m_Layer: 3
   m_Name: EnemyTile
   m_TagString: EnemyTile
   m_Icon: {fileID: 0}
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -31.534, y: 0, z: 0}
 --- !u!114 &6716437951714017554
 MonoBehaviour:
@@ -352,3 +353,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &3231770683044462304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788885412824419337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7c090f7f1ed847a17ee64301484ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupied: 0
