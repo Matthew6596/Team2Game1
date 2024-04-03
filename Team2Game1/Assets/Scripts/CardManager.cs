@@ -56,11 +56,12 @@ public class CardManager : MonoBehaviour
             if (bear)
                 BearHand.Add(c);
             else
+            {
                 PlayerHand.Add(c);
+                TurnSystem.PlayerTurnsLeft--;
+            }
 
             SetHandPositions();
-
-            //Decrement player turn, if not bear
 
         }
     }

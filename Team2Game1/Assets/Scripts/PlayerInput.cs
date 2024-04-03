@@ -78,7 +78,7 @@ public class PlayerInput : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 GameObject hitObj = hit.collider.gameObject;
-                if (IsInteractable(hitObj)&&!CardManager.CardMoving) //If hit obj is interactable
+                if (IsInteractable(hitObj)&&!CardManager.CardMoving&&TurnSystem.PlayerTurnsLeft>0) //If hit obj is interactable
                 {
                     InteractWithItem(hitObj);
                 }
@@ -133,6 +133,7 @@ public class PlayerInput : MonoBehaviour
                 {
                     CardManager.PlayerHand.Remove(CardManager.SelectedCard);
                     CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
+                    TurnSystem.PlayerTurnsLeft--;
                     CardManager.SelectedCard.transform.position = hitObj.transform.position;
                     CardManager.SelectedCard = null;
                     //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
