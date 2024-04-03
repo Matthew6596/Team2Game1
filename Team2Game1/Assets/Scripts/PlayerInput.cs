@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -119,7 +120,7 @@ public class PlayerInput : MonoBehaviour
                 CardManager.DrawFromDeck();
 
         }
-        else if (hitObj.CompareTag("PlayerTile") || hitObj.CompareTag("EnemyTile")) 
+        else if (hitObj.CompareTag("PlayerTile")) 
         {
             tileScript = hitObj.GetComponent<TileScript>();
             if(tileScript.occupied == true)
@@ -181,6 +182,13 @@ public class PlayerInput : MonoBehaviour
                         tileNum = 9;
                         break;
                 }
+            }
+        }
+        else if (hitObj.CompareTag("EnemyTile"))
+        {
+            if(CardManager.SelectedCard!=null && CardManager.PlayerHand.Contains(CardManager.SelectedCard) && CardManager.GetPlayerBoardCards(true).Count == 0)
+            {
+                TurnSystem.BearGotHugged(CardManager.SelectedCard.GetComponent<CardScript>().HugPower);
             }
         }
         else

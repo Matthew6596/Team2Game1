@@ -21,8 +21,8 @@ public class TurnSystem : MonoBehaviour
     static TMP_Text playerText;
     static TMP_Text bearText;
 
-    static public int PlayerEnergy = 100;
-    static public int BearEnergy = 100;
+    static public int PlayerEnergy = 10;
+    static public int BearEnergy = 10;
 
     static bool bearTurn = false;
     // Start is called before the first frame update
