@@ -139,6 +139,7 @@ public class PlayerInput : MonoBehaviour
                     CardManager.SelectedCard = null;
                     //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
                     hitObj.GetComponent<TileScript>().occupied = true;
+                    CardManager.SetHandPositions();
                 }
 
                 //- I don't think you need this part
@@ -194,6 +195,7 @@ public class PlayerInput : MonoBehaviour
         if (CardManager.BoardCards.Contains(CardManager.SelectedCard) && CardManager.BoardCards.Contains(hitObj))
         {
             CardManager.SelectedCard.GetComponent<CardScript>().Hug(hitObj.GetComponent<CardScript>());
+            CardManager.SelectedCard = null;
         }
         //If clicked card is in player hand...
         else if (CardManager.PlayerHand.Contains(hitObj))

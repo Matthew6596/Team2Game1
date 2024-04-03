@@ -129,6 +129,7 @@ public class TurnSystem : MonoBehaviour
                     enemyTiles[ind].GetComponent<TileScript>().occupied = true;
                     enemyTiles[ind].GetComponent<TileScript>().card = _card;
                     spaceFound = true;
+                    CardManager.SetHandPositions();
                 }
             }
     }
