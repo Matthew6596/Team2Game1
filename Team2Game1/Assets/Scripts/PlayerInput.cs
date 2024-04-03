@@ -59,7 +59,7 @@ public class PlayerInput : MonoBehaviour
 
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
-        //DoOutlineGlow();
+        DoOutlineGlow();
     }
 
     public void PlayerLook(InputAction.CallbackContext ctx)

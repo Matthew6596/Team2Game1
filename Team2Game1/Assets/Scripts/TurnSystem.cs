@@ -97,7 +97,7 @@ public class TurnSystem : MonoBehaviour
             List<GameObject> playerCards = CardManager.GetPlayerBoardCards();
             //No range logic for now
             bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
-                .Hug(playerCards[Random.Range(0, playerCards.Count)].GetComponent<CardScript>());
+                .Hug(playerCards[Random.Range(0, playerCards.Count)].GetComponent<CardScript>(),true);
         }
         else
         {
