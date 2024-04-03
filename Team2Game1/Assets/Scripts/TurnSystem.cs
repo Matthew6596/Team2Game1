@@ -54,9 +54,9 @@ public class TurnSystem : MonoBehaviour
         //bear ai
         yield return new WaitForSeconds(0.5f);
         DoBearTurn();
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1.25f);
         DoBearTurn();
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1.25f);
         DoBearTurn();
         //
         bearTurn = false;

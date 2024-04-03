@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -874,10 +874,25 @@ MonoBehaviour:
   StartCards:
   - {fileID: 1059770823961074081, guid: 61a58ab8422806a47b4d69e6cb4bcab2, type: 3}
   - {fileID: 1059770823961074081, guid: 61a58ab8422806a47b4d69e6cb4bcab2, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 6243590188942341121, guid: aab32d8d95858964e8f830d2e217362e, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 569096278145694839, guid: 362b91c230b1c964493917ce36349927, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
+  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
   - {fileID: 1059770823961074081, guid: 61a58ab8422806a47b4d69e6cb4bcab2, type: 3}
-  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
-  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
-  - {fileID: 3144242699005119860, guid: 13bb7c8f01b6f204099ff14b901b95de, type: 3}
   deckTransform: {fileID: 442881224}
   playerHandTransform: {fileID: 1580924992}
   bearHandTransform: {fileID: 0}
@@ -1245,6 +1260,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283261828}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &320303465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 5948917228000235367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332572609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1626,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26c88052d632d244b3ef69f03a19f77, type: 3}
+--- !u!1 &379172161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 592022484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389290100
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,10 +6937,20 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1139988026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 476466320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1167900256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 902478918850796508, guid: b26c88052d632d244b3ef69f03a19f77, type: 3}
   m_PrefabInstance: {fileID: 157013899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1174486165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 991813646}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1263332958 stripped
 Transform:
@@ -8010,6 +8045,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2ded7f12574e6409cf255359de78c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyTiles:
+  - {fileID: 320303465}
+  - {fileID: 1174486165}
+  - {fileID: 379172161}
+  - {fileID: 1916567930}
+  - {fileID: 1139988026}
   RoundText: {fileID: 332572611}
   PlayerHpText: {fileID: 114345709}
   BearHpText: {fileID: 346218609}
@@ -8435,6 +8476,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1916567930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 220342934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1926679760
 Mesh:
   m_ObjectHideFlags: 0
