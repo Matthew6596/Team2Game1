@@ -15,4 +15,17 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    static public void WinGame()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    static public void LoseGame()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
