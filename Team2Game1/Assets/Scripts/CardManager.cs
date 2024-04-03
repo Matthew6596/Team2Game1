@@ -11,7 +11,7 @@ public class CardManager : MonoBehaviour
 
     public Transform[] boardPlacementTransforms;
 
-    static Vector3 deckPosition,playerHandPos,bearHandPos,cameraPos;
+    public static Vector3 deckPosition,playerHandPos,bearHandPos,cameraPos;
 
     static Vector3[] boardPositions;
     static int MaxHandCards = 16;

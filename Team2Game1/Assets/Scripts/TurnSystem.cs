@@ -116,7 +116,7 @@ public class TurnSystem : MonoBehaviour
                 {
                     CardManager.BearHand.Remove(_card);
                     CardManager.BoardCards.Add(_card);
-                    _card.transform.position = enemyTiles[ind].transform.position;
+                    CardManager.MoveCard(_card, enemyTiles[ind].transform.position + Vector3.up * 0.3f + Vector3.back * 0.8f, CardManager.cameraPos);
                     enemyTiles[ind].GetComponent<TileScript>().occupied = true;
                     spaceFound = true;
                 }
