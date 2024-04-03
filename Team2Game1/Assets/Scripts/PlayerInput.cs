@@ -59,7 +59,7 @@ public class PlayerInput : MonoBehaviour
 
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
-        //DoOutlineGlow();
+        DoOutlineGlow();
     }
 
     public void PlayerLook(InputAction.CallbackContext ctx)
@@ -134,7 +134,7 @@ public class PlayerInput : MonoBehaviour
                     CardManager.PlayerHand.Remove(CardManager.SelectedCard);
                     CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
                     TurnSystem.PlayerTurnsLeft--;
-                    CardManager.SelectedCard.transform.position = hitObj.transform.position;
+                    CardManager.MoveCard(CardManager.SelectedCard, hitObj.transform.position + Vector3.up * 0.3f+Vector3.back*0.8f, CardManager.cameraPos);
                     CardManager.SelectedCard = null;
                     //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
                     hitObj.GetComponent<TileScript>().occupied = true;

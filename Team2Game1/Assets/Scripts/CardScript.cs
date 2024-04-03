@@ -47,7 +47,7 @@ public class CardScript : MonoBehaviour
         }
     }
 
-    public void Hug(CardScript opponent)
+    public void Hug(CardScript opponent,bool bear=false)
     {
         //Cant hug if too far away
         if (Vector3.Distance(gameObject.transform.position, opponent.transform.position) > Range) return;
@@ -70,7 +70,8 @@ public class CardScript : MonoBehaviour
             this.GetHugged(this,true);
 
             //to-do, decrement player turn
-            TurnSystem.PlayerTurnsLeft--;
+            if(!bear)
+                TurnSystem.PlayerTurnsLeft--;
 
             return;
         }
@@ -82,7 +83,8 @@ public class CardScript : MonoBehaviour
         if(Special==CardAbility.opossumPlayDead) Special=CardAbility.none;
 
         //to-do, decrement player turn
-        TurnSystem.PlayerTurnsLeft--;
+        if (!bear)
+            TurnSystem.PlayerTurnsLeft--;
 
     }
 }

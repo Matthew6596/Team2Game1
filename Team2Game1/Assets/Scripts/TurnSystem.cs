@@ -54,9 +54,9 @@ public class TurnSystem : MonoBehaviour
         //bear ai
         yield return new WaitForSeconds(0.5f);
         DoBearTurn();
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1.25f);
         DoBearTurn();
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1.25f);
         DoBearTurn();
         //
         bearTurn = false;
@@ -97,7 +97,7 @@ public class TurnSystem : MonoBehaviour
             List<GameObject> playerCards = CardManager.GetPlayerBoardCards();
             //No range logic for now
             bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
-                .Hug(playerCards[Random.Range(0, playerCards.Count)].GetComponent<CardScript>());
+                .Hug(playerCards[Random.Range(0, playerCards.Count)].GetComponent<CardScript>(),true);
         }
         else
         {
@@ -116,7 +116,7 @@ public class TurnSystem : MonoBehaviour
                 {
                     CardManager.BearHand.Remove(_card);
                     CardManager.BoardCards.Add(_card);
-                    _card.transform.position = enemyTiles[ind].transform.position;
+                    CardManager.MoveCard(_card, enemyTiles[ind].transform.position + Vector3.up * 0.3f + Vector3.back * 0.8f, CardManager.cameraPos);
                     enemyTiles[ind].GetComponent<TileScript>().occupied = true;
                     spaceFound = true;
                 }
