@@ -111,7 +111,7 @@ public class TurnSystem : MonoBehaviour
             List<GameObject> bearCards = CardManager.GetPlayerBoardCards(true);
             PlayerEnergy -= bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
                 .HugPower;
-            if(PlayerEnergy<=0) MenuScript.WinGame();
+            if(PlayerEnergy<=0) MenuScript.LoseGame();
         }
     }
     static void bearPlaceCard()
