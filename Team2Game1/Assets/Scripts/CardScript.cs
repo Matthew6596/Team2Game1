@@ -6,7 +6,7 @@ public class CardScript : MonoBehaviour
 {
     public enum CardAbility
     {
-        none,kittenExplode,opossumPlayDead
+        none,kittenExplode,opossumPlayDead,caterpillarEepTouch
     }
 
     //Card stats
@@ -24,6 +24,20 @@ public class CardScript : MonoBehaviour
         else
             Energy -= hugger.HugPower;
 
+        //If caterpillar, hugger also gets eepy by 1
+        if (Special == CardAbility.caterpillarEepTouch)
+            hugger.GetHugged(1);
+
+        if (Energy <= 0) //Card must eep
+        {
+            Energy = 0;
+            CardManager.Discard(gameObject);
+        }
+    }
+
+    public void GetHugged(int hugPow)
+    {
+        Energy -= hugPow;
 
         if (Energy <= 0) //Card must eep
         {

@@ -1392,7 +1392,7 @@ MonoBehaviour:
   Energy: 5
   HugPower: 1
   Range: 1
-  Special: 0
+  Special: 3
   IsPlayerControlled: 0
 --- !u!1 &3225785663688975976
 GameObject:
