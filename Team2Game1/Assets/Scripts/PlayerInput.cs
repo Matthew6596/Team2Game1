@@ -16,7 +16,8 @@ public class PlayerInput : MonoBehaviour
     float mouseX, mouseY, verticalRotation = 0;
 
     Renderer prevHit;
-    Renderer prevHit2;
+
+    TileScript tileScript;
 
     static bool IsInteractable(GameObject hitObj) {
         return hitObj.layer == LayerMask.NameToLayer("Interactable");
@@ -57,8 +58,12 @@ public class PlayerInput : MonoBehaviour
 
         //Glow outline / look feedback
         if(prevHit!=null) prevHit.material.SetFloat("_Scale", 0f); //reset
-        DoOutlineGlow();
-        
+        //DoOutlineGlow();
+
+        if(CardManager.SelectedCard != null)
+        {
+            Debug.Log(CardManager.SelectedCard.name);
+        }
     }
 
     public void PlayerLook(InputAction.CallbackContext ctx)
@@ -77,7 +82,7 @@ public class PlayerInput : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 GameObject hitObj = hit.collider.gameObject;
-                if (IsInteractable(hitObj) && !CardManager.CardMoving) //If hit obj is interactable
+                if (IsInteractable(hitObj)) //If hit obj is interactable
                 {
                     InteractWithItem(hitObj);
                 }
@@ -118,11 +123,64 @@ public class PlayerInput : MonoBehaviour
                 CardManager.DrawFromDeck();
 
         }
-        else if (hitObj.CompareTag("PlayerTile")) {
-            if (CardManager.SelectedCard!=null)
+        else if (hitObj.CompareTag("PlayerTile") || hitObj.CompareTag("EnemyTile")) 
+        {
+            tileScript = hitObj.GetComponent<TileScript>();
+            if(tileScript.occupied == true)
             {
-                CardManager.SelectedCard = null;
-                Debug.Log("Card placed");
+                string tileName = hitObj.name;
+                Debug.Log(tileName);
+            }
+            else
+            {
+                if (CardManager.SelectedCard != null && CardManager.PlayerHand.Contains(CardManager.SelectedCard))
+                {
+                    CardManager.PlayerHand.Remove(CardManager.SelectedCard);
+                    CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
+                    CardManager.SelectedCard.transform.position = hitObj.transform.position;
+                    CardManager.SelectedCard = null;
+                    //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
+                    hitObj.GetComponent<TileScript>().occupied = true;
+                }
+
+                //- I don't think you need this part
+                //find which tile it is
+                string tileName = hitObj.name;
+                Debug.Log(tileName);
+                int tileNum = 0;
+                switch (tileName)
+                {
+                    case "0":
+                        tileNum = 0;
+                        break;
+                    case "1":
+                        tileNum = 1;
+                        break;
+                    case "2":
+                        tileNum = 2;
+                        break;
+                    case "3":
+                        tileNum = 3;
+                        break;
+                    case "4":
+                        tileNum = 4;
+                        break;
+                    case "5":
+                        tileNum = 5;
+                        break;
+                    case "6":
+                        tileNum = 6;
+                        break;
+                    case "7":
+                        tileNum = 7;
+                        break;
+                    case "8":
+                        tileNum = 8;
+                        break;
+                    case "9":
+                        tileNum = 9;
+                        break;
+                }
             }
         }
         else
@@ -169,19 +227,6 @@ public class PlayerInput : MonoBehaviour
                 prevHit = hitObj.transform.GetChild(0).GetComponent<Renderer>();
                 prevHit.material.SetFloat("_Scale", 1.05f); //Show glow
             }
-        }
-
-        if (CardManager.SelectedCard != null)
-        {
-            //Prev selected object, remove glow
-            if(prevHit2!=null&&prevHit2!= CardManager.SelectedCard.transform.GetChild(0).GetComponent<Renderer>())
-            {
-                prevHit2.material.SetFloat("_Scale", 0f);
-            }
-
-            //Selected object glow
-            prevHit2 = CardManager.SelectedCard.transform.GetChild(0).GetComponent<Renderer>();
-            prevHit2.material.SetFloat("_Scale", 1.05f); //Show glow
         }
     }
 }
