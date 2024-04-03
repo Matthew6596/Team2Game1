@@ -28,7 +28,7 @@ public class CardManager : MonoBehaviour
     public static bool CardMoving = false;
 
 
-    static MonoBehaviour m;
+    public static MonoBehaviour m;
     // Start is called before the first frame update
     void Start()
     {

@@ -32,7 +32,7 @@ public class TurnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerTurnsLeft<=0 && !bearTurn) DoBearTurns();
+        if(PlayerTurnsLeft<=0 && !bearTurn) CardManager.m.StartCoroutine(DoBearTurns());
     }
 
     static public void BeginRound()
@@ -42,15 +42,33 @@ public class TurnSystem : MonoBehaviour
         PlayerTurnsLeft = TotalPlayerTurns;
     }
 
-    static public void DoBearTurns()
+    static public IEnumerator DoBearTurns()
     {
         bearTurn = true;
         //bear ai
-
+        yield return new WaitForSeconds(0.5f);
+        DoBearTurn();
+        yield return new WaitForSeconds(0.75f);
+        DoBearTurn();
+        yield return new WaitForSeconds(0.75f);
+        DoBearTurn();
         //
         bearTurn = false;
         playerText.text = PlayerEnergy.ToString();
+
+        //All cards reduce energy by 1 at end of round
+        for(int i=0; i<CardManager.BoardCards.Count; i++)
+        {
+            CardManager.BoardCards[i].GetComponent<CardScript>().GetHugged(1);
+        }
+
+        //Begin next round
         BeginRound();
+    }
+
+    static void DoBearTurn()
+    {
+
     }
 
     static public void BearGotHugged(int hugPow)
