@@ -205,8 +205,10 @@ public class PlayerInput : MonoBehaviour
                 CardManager.SelectedCard = hitObj;
         }
         //If clicked card is on the board, and is the same as selected card, deselect
-        else if(CardManager.SelectedCard==hitObj)
+        else if (CardManager.SelectedCard == hitObj)
             CardManager.SelectedCard = null;
+        else
+            CardManager.SelectedCard = hitObj;
 
     }
 

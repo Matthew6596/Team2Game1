@@ -106,6 +106,7 @@ public class CardManager : MonoBehaviour
             DeckCards[rand1] = DeckCards[rand2];
             DeckCards[rand2] = tmp;
         }
+        SetDeckPositions();
     }
 
     void setHandPositions()

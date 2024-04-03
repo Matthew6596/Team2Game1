@@ -44,13 +44,14 @@ public class CardScript : MonoBehaviour
         {
             Energy = 0;
             CardManager.Discard(gameObject);
+            gameObject.transform.position = Vector3.down * 100;
         }
     }
 
     public void Hug(CardScript opponent,bool bear=false)
     {
         //Cant hug if too far away
-        if (Vector3.Distance(gameObject.transform.position, opponent.transform.position) > Range) return;
+        //if (Vector3.Distance(gameObject.transform.position, opponent.transform.position) > Range) return;
         //Cant hug when opossum ability is active
         if (opponent.Special == CardAbility.opossumPlayDead) return;
 
