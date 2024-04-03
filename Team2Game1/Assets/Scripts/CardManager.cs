@@ -46,18 +46,21 @@ public class CardManager : MonoBehaviour
         SetDeckPositions();
     }
 
-    static public void DrawFromDeck()
+    static public void DrawFromDeck(bool bear=false)
     {
         if (DeckCards.Count > 0)
         {
             //Remove card from deck and add to hand
             GameObject c = DeckCards[0];
             DeckCards.Remove(c);
-            PlayerHand.Add(c);
+            if (bear)
+                BearHand.Add(c);
+            else
+                PlayerHand.Add(c);
 
             SetHandPositions();
 
-            //Decrement player turn
+            //Decrement player turn, if not bear
 
         }
     }
@@ -122,7 +125,15 @@ public class CardManager : MonoBehaviour
         int nc = PlayerHand.Count - 1;
         for (int i = 0; i < PlayerHand.Count; i++)
         {
+            BearHand[i].GetComponent<CardScript>().IsPlayerControlled = true;
             MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos, cameraPos);
+        }
+        //Change bear card positions
+        nc = BearHand.Count - 1;
+        for (int i = 0; i < BearHand.Count; i++)
+        {
+            BearHand[i].GetComponent<CardScript>().IsPlayerControlled = false;
+            MoveCard(BearHand[i], handPositions[nc, i] + bearHandPos, bearHandPos+(Vector3.forward*1000));
         }
     }
     static public void SetDeckPositions()
@@ -174,5 +185,23 @@ public class CardManager : MonoBehaviour
     static public void MoveCard(GameObject _card, Vector3 _location, Vector3 lookAt)
     {
         m.StartCoroutine(moveCard(_card, _location, lookAt));
+    }
+
+    static public int CountPlayerBoardCards(bool bear=false)
+    {
+        int cnt = 0;
+        for(int i=0; i<BoardCards.Count; i++){
+            if (BoardCards[i].GetComponent<CardScript>().IsPlayerControlled)
+            {
+                if(!bear)
+                    cnt++;
+            }
+            else
+            {
+                if (bear)
+                    cnt++;
+            }
+        }
+        return cnt;
     }
 }

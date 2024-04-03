@@ -38,6 +38,7 @@ public class TurnSystem : MonoBehaviour
     static public void BeginRound()
     {
         RoundNumber++;
+        CardManager.ShuffleCards();
         roundText.text = RoundNumber.ToString();
         PlayerTurnsLeft = TotalPlayerTurns;
     }
@@ -68,7 +69,26 @@ public class TurnSystem : MonoBehaviour
 
     static void DoBearTurn()
     {
+        if (CardManager.BearHand.Count < 2)
+        {
+            //Bear draw from deck
+            CardManager.DrawFromDeck(true);
+            return;
+        }
+        int bearCardsOnBoard = CardManager.CountPlayerBoardCards(true);
+        int rand = Random.Range(0, 100);
+        if (bearCardsOnBoard == 0)
+        {
+            //Bear place card on board
 
+        }else if (bearCardsOnBoard < 3 && rand < 50)
+        {
+            //Bear place card on board
+        }
+        else
+        {
+            //Bear attack
+        }
     }
 
     static public void BearGotHugged(int hugPow)

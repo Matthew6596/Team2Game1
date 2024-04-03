@@ -14,7 +14,7 @@ public class CardScript : MonoBehaviour
     public int HugPower;
     public float Range;
     public CardAbility Special;
-    public bool IsPlayerControlled;
+    public bool IsPlayerControlled=true;
 
     public void GetHugged(CardScript hugger, bool alwaysLowerEnergy=false)
     {
