@@ -83,8 +83,19 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041456572482923558}
-  m_Text: "This is a flat card with a\r\r\nthree-dimensional world\r\r\nbehind it.\r\r\nThis
-    world is only visible\r\nthrough the card's window."
+  m_Text: 'Energy: 3
+
+    Hug Power: 10
+
+    -----------------------------------------
+
+    Hugs
+    all opponents in a hug
+
+    explosion! This will also cause
+
+    the cat to lose
+    all energy'
   m_OffsetZ: 0
   m_CharacterSize: 0.03
   m_LineSpacing: 1
@@ -1549,7 +1560,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 838
+  m_VersionIndex: 841
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1850,7 +1861,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 538335698013483476, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 5124
+      value: 5127
       objectReference: {fileID: 0}
     - target: {fileID: 559201447070377501, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1878,7 +1889,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c2a3690790c9c641b869216a3f2dfeb, type: 2}
     - target: {fileID: 2814121349591569767, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 5121
+      value: 5124
       objectReference: {fileID: 0}
     - target: {fileID: 3048817201929066155, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1950,15 +1961,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4175193398057238328, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 3686
+      value: 3689
       objectReference: {fileID: 0}
     - target: {fileID: 5245510349904619390, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 7241
+      value: 7244
       objectReference: {fileID: 0}
     - target: {fileID: 5546218155445653134, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 28314
+      value: 28317
       objectReference: {fileID: 0}
     - target: {fileID: 5994195436816891587, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1966,15 +1977,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c2a3690790c9c641b869216a3f2dfeb, type: 2}
     - target: {fileID: 8052488119285949413, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 3683
+      value: 3686
       objectReference: {fileID: 0}
     - target: {fileID: 8345843044859141556, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 6656
+      value: 6659
       objectReference: {fileID: 0}
     - target: {fileID: 9216816848104551723, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 28317
+      value: 28320
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3039965336902128078, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}

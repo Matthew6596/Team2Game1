@@ -541,8 +541,18 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7773560963942233419}
-  m_Text: "This is a flat card with a\r\r\nthree-dimensional world\r\r\nbehind it.\r\r\nThis
-    world is only visible\r\nthrough the card's window."
+  m_Text: 'Energy: 4
+
+    Hug Power: 1
+
+    -----------------------------------------
+
+    Plays
+    dead, opponents cannot
+
+    hug opposum until they hug
+
+    an opponent'
   m_OffsetZ: 0
   m_CharacterSize: 0.03
   m_LineSpacing: 1
@@ -1763,7 +1773,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 859
+  m_VersionIndex: 862
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1854,7 +1864,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2b5da77b49671bb41840d172ac9121ff, type: 2}
     - target: {fileID: 1420096123525793286, guid: 0c21d47572c869642a9b417639abe2ad, type: 3}
       propertyPath: m_VersionIndex
-      value: 5540
+      value: 5543
       objectReference: {fileID: 0}
     - target: {fileID: 6348518065279241874, guid: 0c21d47572c869642a9b417639abe2ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1926,7 +1936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284454782080500736, guid: 0c21d47572c869642a9b417639abe2ad, type: 3}
       propertyPath: m_VersionIndex
-      value: 1504
+      value: 1507
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2051562497939698484, guid: 0c21d47572c869642a9b417639abe2ad, type: 3}

@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 841
+  m_VersionIndex: 844
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1574,8 +1574,16 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3708118205377688169}
-  m_Text: "This is a flat card with a\r\r\nthree-dimensional world\r\r\nbehind it.\r\r\nThis
-    world is only visible\r\nthrough the card's window."
+  m_Text: 'Energy: 5
+
+    Hug Power: 1
+
+    -----------------------------------------
+
+    Opponents
+    lose 1 energy when
+
+    hugging caterpillar'
   m_OffsetZ: 0
   m_CharacterSize: 0.03
   m_LineSpacing: 1
@@ -1914,7 +1922,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2b5da77b49671bb41840d172ac9121ff, type: 2}
     - target: {fileID: 935313399836949344, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 816
+      value: 819
       objectReference: {fileID: 0}
     - target: {fileID: 1065382688404362141, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1926,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2b5da77b49671bb41840d172ac9121ff, type: 2}
     - target: {fileID: 1583020887886294263, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 729
+      value: 732
       objectReference: {fileID: 0}
     - target: {fileID: 1747961319415014966, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1946,11 +1954,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7f0415667585d9949b9de0a9316a1df0, type: 2}
     - target: {fileID: 4702717779924646081, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 1477
+      value: 1480
       objectReference: {fileID: 0}
     - target: {fileID: 4875707570719302472, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 801
+      value: 804
       objectReference: {fileID: 0}
     - target: {fileID: 4921890170949187208, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Name
@@ -1962,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6b0ac0215e42c3448b4a7e444c5612b2, type: 2}
     - target: {fileID: 6441914413275309663, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 717
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 6964971504705035574, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1970,7 +1978,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6b0ac0215e42c3448b4a7e444c5612b2, type: 2}
     - target: {fileID: 7115089136872037593, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 1219
+      value: 1222
       objectReference: {fileID: 0}
     - target: {fileID: 7552613620085985192, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1982,7 +1990,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7f0415667585d9949b9de0a9316a1df0, type: 2}
     - target: {fileID: 8024393646815336163, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_VersionIndex
-      value: 1474
+      value: 1477
       objectReference: {fileID: 0}
     - target: {fileID: 8822237698491743255, guid: e91bedf66f751c947b53663aad8bde68, type: 3}
       propertyPath: m_Materials.Array.data[0]
