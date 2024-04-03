@@ -111,6 +111,7 @@ public class TurnSystem : MonoBehaviour
             List<GameObject> bearCards = CardManager.GetPlayerBoardCards(true);
             PlayerEnergy -= bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
                 .HugPower;
+            if(PlayerEnergy<=0) MenuScript.WinGame();
         }
     }
     static void bearPlaceCard()
@@ -141,6 +142,7 @@ public class TurnSystem : MonoBehaviour
         {
             BearEnergy = 0;
             //Player wins!
+            MenuScript.WinGame();
         }
 
         bearText.text = BearEnergy.ToString();

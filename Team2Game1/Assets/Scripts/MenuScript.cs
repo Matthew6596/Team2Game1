@@ -15,4 +15,9 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    static public void WinGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
