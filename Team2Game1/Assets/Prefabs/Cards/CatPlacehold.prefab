@@ -135,7 +135,7 @@ Transform:
   - {fileID: 3128240384572156010}
   - {fileID: 3754559408155977626}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8964744058125296408
 BoxCollider:
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 835
+  m_VersionIndex: 838
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1826,7 +1826,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7516130993140479173}
-  m_Text: Card 1
+  m_Text: Cat Explosion
   m_OffsetZ: 0
   m_CharacterSize: 0.03
   m_LineSpacing: 1
@@ -1850,7 +1850,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 538335698013483476, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 5121
+      value: 5124
       objectReference: {fileID: 0}
     - target: {fileID: 559201447070377501, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1878,7 +1878,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c2a3690790c9c641b869216a3f2dfeb, type: 2}
     - target: {fileID: 2814121349591569767, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 5118
+      value: 5121
       objectReference: {fileID: 0}
     - target: {fileID: 3048817201929066155, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1950,15 +1950,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4175193398057238328, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 3683
+      value: 3686
       objectReference: {fileID: 0}
     - target: {fileID: 5245510349904619390, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 7238
+      value: 7241
       objectReference: {fileID: 0}
     - target: {fileID: 5546218155445653134, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 28311
+      value: 28314
       objectReference: {fileID: 0}
     - target: {fileID: 5994195436816891587, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1966,15 +1966,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c2a3690790c9c641b869216a3f2dfeb, type: 2}
     - target: {fileID: 8052488119285949413, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 3680
+      value: 3683
       objectReference: {fileID: 0}
     - target: {fileID: 8345843044859141556, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 6653
+      value: 6656
       objectReference: {fileID: 0}
     - target: {fileID: 9216816848104551723, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}
       propertyPath: m_VersionIndex
-      value: 28314
+      value: 28317
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3039965336902128078, guid: 992c481b4177d124bbadb31d33f177f5, type: 3}

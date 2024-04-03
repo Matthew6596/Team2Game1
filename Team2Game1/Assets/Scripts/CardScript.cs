@@ -32,6 +32,7 @@ public class CardScript : MonoBehaviour
         {
             Energy = 0;
             CardManager.Discard(gameObject);
+            gameObject.transform.position = Vector3.down*100;
         }
     }
 
@@ -69,6 +70,7 @@ public class CardScript : MonoBehaviour
             this.GetHugged(this,true);
 
             //to-do, decrement player turn
+            TurnSystem.PlayerTurnsLeft--;
 
             return;
         }
@@ -80,5 +82,7 @@ public class CardScript : MonoBehaviour
         if(Special==CardAbility.opossumPlayDead) Special=CardAbility.none;
 
         //to-do, decrement player turn
+        TurnSystem.PlayerTurnsLeft--;
+
     }
 }
