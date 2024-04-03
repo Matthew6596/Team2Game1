@@ -205,4 +205,22 @@ public class CardManager : MonoBehaviour
         }
         return cnt;
     }
+    static public List<GameObject> GetPlayerBoardCards(bool bear = false)
+    {
+        List<GameObject> ret= new();
+        for (int i = 0; i < BoardCards.Count; i++)
+        {
+            if (BoardCards[i].GetComponent<CardScript>().IsPlayerControlled)
+            {
+                if (!bear)
+                    ret.Add(BoardCards[i]);
+            }
+            else
+            {
+                if (bear)
+                    ret.Add(BoardCards[i]);
+            }
+        }
+        return ret;
+    }
 }

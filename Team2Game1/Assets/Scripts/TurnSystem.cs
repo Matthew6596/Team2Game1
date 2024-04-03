@@ -9,6 +9,9 @@ public class TurnSystem : MonoBehaviour
     static public int TotalPlayerTurns=3;
     static public int PlayerTurnsLeft=3;
 
+    public GameObject[] EnemyTiles;
+    static List<GameObject> enemyTiles=new();
+
     public TMP_Text RoundText;
     public TMP_Text PlayerHpText;
     public TMP_Text BearHpText;
@@ -23,6 +26,8 @@ public class TurnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(int i=0; i<EnemyTiles.Length; i++)
+            enemyTiles.Add(EnemyTiles[i]);
         roundText = RoundText;
         playerText = PlayerHpText;
         bearText = BearHpText;
@@ -79,18 +84,44 @@ public class TurnSystem : MonoBehaviour
         int rand = Random.Range(0, 100);
         if (bearCardsOnBoard == 0)
         {
-            //Bear place card on board
+            bearPlaceCard();
 
-        }else if (bearCardsOnBoard < 3 && rand < 50)
+        }else if (bearCardsOnBoard < 5 && rand < 50)
         {
-            //Bear place card on board
+            bearPlaceCard();
+        }
+        else if (CardManager.CountPlayerBoardCards()>0)
+        {
+            //Bear attack
+            List<GameObject> bearCards = CardManager.GetPlayerBoardCards(true);
+            List<GameObject> playerCards = CardManager.GetPlayerBoardCards();
+            //No range logic for now
+            bearCards[Random.Range(0, bearCards.Count)].GetComponent<CardScript>()
+                .Hug(playerCards[Random.Range(0, playerCards.Count)].GetComponent<CardScript>());
         }
         else
         {
-            //Bear attack
+            CardManager.DrawFromDeck(true);
         }
     }
-
+    static void bearPlaceCard()
+    {
+        //Bear place card on board
+            GameObject _card = CardManager.BearHand[Random.Range(0,CardManager.BearHand.Count)];
+            bool spaceFound = false;
+            while (!spaceFound)
+            {
+                int ind = Random.Range(0, 5);
+                if (!enemyTiles[ind].GetComponent<TileScript>().occupied)
+                {
+                    CardManager.BearHand.Remove(_card);
+                    CardManager.BoardCards.Add(_card);
+                    _card.transform.position = enemyTiles[ind].transform.position;
+                    enemyTiles[ind].GetComponent<TileScript>().occupied = true;
+                    spaceFound = true;
+                }
+            }
+    }
     static public void BearGotHugged(int hugPow)
     {
         BearEnergy -= hugPow;

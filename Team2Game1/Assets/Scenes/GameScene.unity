@@ -1525,6 +1525,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346218607}
   m_CullTransparentMesh: 1
+--- !u!1 &363338553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 991813646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &363936049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2421,6 +2426,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 49.873, y: 180, z: 0}
+--- !u!1 &511406635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 220342934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &542396608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 592022484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &592022484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5547,6 +5562,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &740634872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 5948917228000235367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &772715720
 GameObject:
   m_ObjectHideFlags: 0
@@ -7735,6 +7755,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1671120377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1788885412824419337, guid: 55c822a8c94cc064c94b01b0ff720773, type: 3}
+  m_PrefabInstance: {fileID: 476466320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1722022495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8018,6 +8043,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2ded7f12574e6409cf255359de78c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyTiles:
+  - {fileID: 740634872}
+  - {fileID: 363338553}
+  - {fileID: 542396608}
+  - {fileID: 511406635}
+  - {fileID: 1671120377}
   RoundText: {fileID: 332572611}
   PlayerHpText: {fileID: 114345709}
   BearHpText: {fileID: 346218609}
