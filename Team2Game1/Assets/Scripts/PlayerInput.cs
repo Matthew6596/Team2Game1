@@ -184,11 +184,12 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
-        else if (hitObj.CompareTag("EnemyTile"))
+        else if (hitObj.CompareTag("Bear"))
         {
-            if(CardManager.SelectedCard!=null && CardManager.PlayerHand.Contains(CardManager.SelectedCard) && CardManager.GetPlayerBoardCards(true).Count == 0)
+            if(CardManager.SelectedCard!=null && CardManager.BoardCards.Contains(CardManager.SelectedCard) && CardManager.GetPlayerBoardCards(true).Count == 0)
             {
                 TurnSystem.BearGotHugged(CardManager.SelectedCard.GetComponent<CardScript>().HugPower);
+                TurnSystem.PlayerTurnsLeft--;
             }
         }
         else
