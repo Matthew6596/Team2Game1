@@ -136,7 +136,7 @@ public class PlayerInput : MonoBehaviour
                 if (CardManager.SelectedCard != null && CardManager.PlayerHand.Contains(CardManager.SelectedCard))
                 {
                     CardManager.PlayerHand.Remove(CardManager.SelectedCard);
-                    CardManager.BoardCards.Add(CardManager.SelectedCard); //this is VERY not correct and is causing errors
+                    CardManager.BoardCards.Add(CardManager.SelectedCard);
                     CardManager.SelectedCard.transform.position = hitObj.transform.position;
                     CardManager.SelectedCard = null;
                     //CardManager.BoardCards[tileNum].transform.position = hitObj.transform.position;
