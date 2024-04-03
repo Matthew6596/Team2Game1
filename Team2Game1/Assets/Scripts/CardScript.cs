@@ -59,7 +59,7 @@ public class CardScript : MonoBehaviour
         if (Special == CardAbility.kittenExplode)
         {
             int cnt = CardManager.BoardCards.Count;
-            for (int i = 0; i < cnt; i++) //For all cards on the board
+            for (int i = cnt; i >= 0; i--) //For all cards on the board
             {
                 CardScript _card = CardManager.BoardCards[i].GetComponent<CardScript>();
                 if (!_card.IsPlayerControlled) //if card is not player controlled (change for balance?)
