@@ -125,7 +125,7 @@ public class CardManager : MonoBehaviour
         int nc = PlayerHand.Count - 1;
         for (int i = 0; i < PlayerHand.Count; i++)
         {
-            BearHand[i].GetComponent<CardScript>().IsPlayerControlled = true;
+            PlayerHand[i].GetComponent<CardScript>().IsPlayerControlled = true;
             MoveCard(PlayerHand[i], handPositions[nc, i] + playerHandPos, cameraPos);
         }
         //Change bear card positions
